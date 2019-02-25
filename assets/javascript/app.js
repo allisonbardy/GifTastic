@@ -38,13 +38,32 @@ $(document).on("click", ".animal-button",function() {
         var animalDiv = $("<div>");
         var p = $("<p>").text("Rating: " + results[i].rating);
         var animalImage = $("<img>");
-        // set attribute of gif to fixed height
-        animalImage.attr("src", results[i].images.fixed_height.url);
+        // set attribute of gif to fixed height/still image/animated gif
+        animalImage.attr("src", results[i].images.fixed_height_still.url);
+        animalImage.attr("data-still", results[i].images.fixed_height_still.url);
+        animalImage.attr("data-animate", results[i].images.fixed_height.url);
+        animalImage.attr("data-state", "still");
+        animalImage.attr("class", "gif");
         // appends rating and img to div 
         animalDiv.append(p);
         animalDiv.append(animalImage);
         // Prependng the div to the HTML
         $("#gifs").prepend(animalDiv);
-      }
+        // click function to animate gifs
+        $(".gif").on("click", function() {
+          var state = $(this).attr("data-state");
+          // state is still by default
+          if (state === "still") {
+          // if gif is clicked state is changed to animated
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-animate");
+          } 
+          // else, gif remains still
+          else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-still");
+          }
+          });
+      };
     });
 });
