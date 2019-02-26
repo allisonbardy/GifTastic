@@ -12,14 +12,15 @@ $("#submit").on("click", function() {
 // function to add button for user input
 function buttons(){
   $("#topics").empty();
-    for (var i = 0; i < topics.length; i++) {
-    var buttons = $('<button>').text(topics[i]).attr("data-animal",topics[i]).attr("class","animal-button");
+  for (var i = 0; i < topics.length; i++) {
+    var buttons = $('<button>').text(topics[i]).attr("data-animal",topics[i]).attr("class","animal-button btn btn-secondary");
     buttons.appendTo(`#topics`);
   }
 };
 buttons();
 // click function for animal buttons
 $(document).on("click", ".animal-button",function() {
+  $("#gifs").empty();
   // stores data-animal property of button clicked
   var animal = $(this).attr("data-animal");
   // queryURL with animal name
