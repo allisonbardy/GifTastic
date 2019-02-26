@@ -56,12 +56,12 @@ $(document).on("click", ".animal-button",function() {
           if (state === "still") {
           // if gif is clicked state is changed to animated
           $(this).attr("src", $(this).attr("data-animate"));
-          $(this).attr("data-animate");
+          $(this).attr("data-state", "animate");
           } 
           // else, gif remains still
           else {
           $(this).attr("src", $(this).attr("data-still"));
-          $(this).attr("data-still");
+          $(this).attr("data-state", "still");
           }
           });
       };
