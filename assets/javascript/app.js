@@ -51,20 +51,20 @@ $(document).on("click", ".animal-button",function() {
         // Prependng the div to the HTML
         $("#gifs").prepend(animalDiv);
         // click function to animate gifs
-        $(".gif").on("click", function() {
-          var state = $(this).attr("data-state");
-          // state is still by default
-          if (state === "still") {
-          // if gif is clicked state is changed to animated
-          $(this).attr("src", $(this).attr("data-animate"));
-          $(this).attr("data-state", "animate");
-          } 
-          // else, gif remains still
-          else {
-          $(this).attr("src", $(this).attr("data-still"));
-          $(this).attr("data-state", "still");
-          }
-          });
       };
     });
 });
+$(document).on("click", ".gif",function() {
+  var state = $(this).attr("data-state");
+  // state is still by default
+  if (state === "still") {
+  // if gif is clicked state is changed to animated
+  $(this).attr("src", $(this).attr("data-animate"));
+  $(this).attr("data-state", "animate");
+  } 
+  // else, gif remains still
+  else {
+  $(this).attr("src", $(this).attr("data-still"));
+  $(this).attr("data-state", "still");
+  }
+  });
